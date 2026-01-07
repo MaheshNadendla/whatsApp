@@ -1,0 +1,30 @@
+
+# first create a folder '.env' in side the server folder
+# then add bellow variables
+
+# get crediantials from the given urls bellow and add bellow
+
+
+# get mongodb url from : 'https://www.mongodb.com/products/platform/atlas-database'
+
+MONGODB_URI='your mongodb url'
+PORT=5000
+JWT_SECRET=hard
+NODE_ENV=development
+
+# get cloudnary (name,api_key,api_secret) from : 'https://cloudinary.com/' 
+
+CLOUDINARY_CLOUD_NAME='your cloudnary name'
+CLOUDINARY_API_KEY='your cloudnary api key'
+CLOUDINARY_API_SECRET='your cloudnary api secret'
+
+
+# get brevo smtp (email,host,username,password) from : 'https://www.brevo.com/free-smtp-server/'
+
+NODE_MAIL_EMAIL='your brevo smtp email'
+NODE_MAIL_HOST='your brevo smtp host'
+NODE_MAIL_USERNAME='your brevo smtp username'
+NODE_MAIL_PASSWORD='your brevo smtp password'
+
+
+

@@ -1,0 +1,222 @@
+
+
+.SignUpLogin
+{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100%;
+        padding: 0 10px;
+        position: relative;
+        perspective: 2700px;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, red);
+        background-position: center;
+
+
+
+        .cover {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: 400px;
+            z-index: 98;
+            transition: transform 1s ease;
+            transform-style: preserve-3d;
+          }
+    
+          .cover .front,
+          .cover .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            backface-visibility: hidden;
+          }
+    
+          .cover .back {
+            background: linear-gradient(45deg, white, blue);
+            transform: rotateY(180deg);
+          }
+    
+          #flip:checked ~ .cover {
+            transform: rotateY(-180deg);
+          }
+    
+          .wrapper {
+            width: 400px;
+            height: 500px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(60px);
+            -webkit-backdrop-filter: blur(6px);
+          }
+    
+          form {
+            display: flex;
+            flex-direction: column;
+          }
+    
+          h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+          }
+    
+          .input-field {
+            position: relative;
+            border-bottom: 2px solid #ccc;
+            margin: 15px 0;
+          }
+    
+          .input-field label {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 16px;
+            pointer-events: none;
+            transition: 0.15s ease;
+          }
+    
+          .input-field input {
+            width: 100%;
+            height: 40px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #fff;
+          }
+    
+          .input-field input:focus ~ label,
+          .input-field input:valid ~ label {
+            font-size: 0.8rem;
+            top: 10px;
+            transform: translateY(-120%);
+          }
+    
+          .forget {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 25px 0 35px 0;
+            color: #fff;
+          }
+    
+          #remember {
+            accent-color: #fff;
+          }
+    
+          .forget label {
+            display: flex;
+            align-items: center;
+          }
+    
+          .forget label p {
+            margin-left: 8px;
+          }
+    
+          .wrapper a {
+            color: #efefef;
+            text-decoration: none;
+          }
+    
+          .wrapper a:hover {
+            text-decoration: underline;
+          }
+    
+          button {
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            transition: 0.3s ease;
+          }
+    
+          button:hover {
+            color: #fff;
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+          }
+    
+          .register {
+            text-align: center;
+            margin-top: 30px;
+            color: #fff;
+          }
+    
+          .cover {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+    
+            transform: translate(0%, -50%);
+            height: 500px;
+            width: 400px;
+            z-index: 98;
+            transition: all 1s ease;
+            transform-origin: left;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+          }
+    
+          .cover .back {
+            transform: rotateY(180deg);
+          }
+    
+          #flip {
+            display: none;
+          }
+    
+          #flip:checked ~ .cover {
+            transform: rotateY(180deg) translate(0%, -50%);
+          }
+    
+          #flip:checked ~ .forms .log {
+            pointer-events: none;
+          }
+    
+          .info-container {
+            width: 50%;
+            background: linear-gradient(135deg, #f3c623, #ff8c00);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+    
+          .info-container h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+          }
+    
+          .info-container p {
+            font-size: 14px;
+            line-height: 1.6;
+          }
+    
+          .orange {
+            color: orange;
+            cursor: pointer;
+          }
+
+
+
+}

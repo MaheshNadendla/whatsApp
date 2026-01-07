@@ -1,0 +1,172 @@
+/* Layout */
+.otp-verification-page {
+    height: 100dvh;
+    width: 100%;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .otp-verification-container {
+    max-width: 42rem;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #f0f2f5;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .verification-card {
+    background-color: #f0f2f5;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  /* Header */
+  .verification-header {
+    font-size: 1.25rem;
+  }
+  
+  .verification-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .verification-subtitle {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* User Details Section */
+  .user-details-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .user-avatar-img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .user-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .user-info {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* OTP Input Section */
+  .otp-send-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .send-otp-btn {
+    padding: 0.75rem 2rem;
+    background-color: #2196f3;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .send-otp-btn:hover {
+    background-color: #1e88e5;
+  }
+  
+  .otp-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .otp-input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .verify-btn {
+    padding: 0.75rem 2rem;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .verify-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .verify-btn:disabled {
+    background-color: #cccccc;
+  }
+  
+  .verification-success {
+    font-size: 1rem;
+    font-weight: 500;
+    color: green;
+  }
+  
+  .verified-icon {
+    font-size: 1.5rem;
+  }
+
+  .Input-Value-Box{
+    width: 100%;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: start;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+
+  .Input-Value-Box2{
+    width: 100%;
+    padding-block: 0.5rem;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    gap : 0.5rem;
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    align-items: center;
+  }
+  
