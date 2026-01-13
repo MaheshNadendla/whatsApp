@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import EmojiPicker from 'emoji-picker-react';
 import { GrSearch } from "react-icons/gr";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
@@ -34,6 +35,32 @@ function MessagePart() {
 
   const fileInputRef = useRef(null);
   const [imagePreview, setImagePreview] = useState(null);
+
+  
+
+
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const emojiRef = useRef(null);
+
+  // 1. Handle adding emoji to text
+  const handleEmojiClick = (emojiData) => {
+    // Assuming 'setInputValue' is the setter for 'inputValue'
+    setInputValue((prev) => prev + emojiData.emoji);
+  };
+
+  // 2. Handle clicking outside to close
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // If picker is open AND click is NOT inside the picker container
+      if (emojiRef.current && !emojiRef.current.contains(event.target)) {
+        setShowEmojiPicker(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
 
 
 
@@ -310,46 +337,74 @@ function MessagePart() {
 
   {/* Bottom Section */}
   <div className="h-[11%] w-full bg-[#f0f2f5] flex items-center justify-between px-2">
-    <input
-      type="file"
-      accept="image/*"
-      className="hidden"
-      ref={fileInputRef}
-      onChange={handleImageChange}
-    />
+  <input
+    type="file"
+    accept="image/*"
+    className="hidden"
+    ref={fileInputRef}
+    onChange={handleImageChange}
+  />
 
-    {/* Plus */}
-    <button
-      onClick={() => fileInputRef.current?.click()}
-      className="w-[12%] flex justify-center items-center text-2xl text-black/70 bg-transparent border-none cursor-pointer"
+  {/* Plus Button */}
+  <button
+    onClick={() => fileInputRef.current?.click()}
+    className="w-[12%] flex justify-center items-center text-2xl text-black/70 bg-transparent border-none cursor-pointer"
+  >
+    <FaPhotoVideo />
+  </button>
+
+  {/* --- MODIFIED INPUT CONTAINER --- */}
+  {/* Added 'relative' here so the picker positions relative to this box */}
+  <div className="relative bg-white w-[76%] h-[55%] rounded-lg border border-black/10 flex items-center">
+    
+    {/* EMOJI PICKER OVERLAY */}
+    {showEmojiPicker && (
+      <div 
+        ref={emojiRef} 
+        className="absolute bottom-12 left-0 z-50 shadow-2xl rounded-xl"
+      >
+        {/* Responsive Width: 80vw on mobile, auto on desktop */}
+        <div className="w-[80vw] sm:w-auto">
+          <EmojiPicker 
+            onEmojiClick={handleEmojiClick}
+            width="100%" 
+            height={350}
+            previewConfig={{ showPreview: false }} 
+          />
+        </div>
+      </div>
+    )}
+
+    {/* Emoji Toggle Button */}
+    <button 
+      onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+      className={`h-full w-[10%] bg-transparent border-none text-2xl flex items-center justify-center transition-colors
+        ${showEmojiPicker ? 'text-blue-500' : 'text-black/75'}
+      `}
     >
-      <FaPhotoVideo />
+      <RiEmojiStickerFill />
     </button>
 
-    {/* Input */}
-    <div className="bg-white w-[76%] h-[55%] rounded-lg border border-black/10 flex items-center">
-      <button className="h-full w-[10%] bg-transparent border-none text-2xl text-black/75 flex items-center justify-center">
-        <RiEmojiStickerFill />
-      </button>
-      <input
-        value={inputValue}
-        type="text"
-        onChange={messageInputHadle}
-        className="h-full w-[90%] bg-transparent border-none outline-none text-lg px-2"
-      />
-    </div>
-
-    {/* Mic / Send */}
-    <div className="w-[12%] flex justify-center items-center text-2xl text-black/70">
-      {sendingMessageLoader ? (
-        <BtnLoader />
-      ) : inputValue !== "" || imagePreview ? (
-        <IoSendSharp onClick={handleSendPrivateMessage} />
-      ) : (
-        <FaMicrophone />
-      )}
-    </div>
+    <input
+      value={inputValue}
+      type="text"
+      onChange={messageInputHadle}
+      placeholder="Type a message" // Added placeholder for better UX
+      className="h-full w-[90%] bg-transparent border-none outline-none text-lg px-2"
+    />
   </div>
+
+  {/* Mic / Send */}
+  <div className="w-[12%] flex justify-center items-center text-2xl text-black/70">
+    {sendingMessageLoader ? (
+      <BtnLoader />
+    ) : inputValue !== "" || imagePreview ? (
+      <IoSendSharp onClick={handleSendPrivateMessage} className="cursor-pointer text-blue-600"/>
+    ) : (
+      <FaMicrophone />
+    )}
+  </div>
+</div>
 </div>
   );
 }

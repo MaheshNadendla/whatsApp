@@ -231,7 +231,7 @@ const PORT = process.env.PORT;
 // app.use(cors(corsOptions));
 
 app.use(cors({
-  origin: "https://whatsapp-chatapp-mahesh-nadendla.onrender.com",
+  origin: ["https://whatsapp-chatapp-mahesh-nadendla.onrender.com","http://localhost:3000"],
   credentials: true,
   methods: ["GET", "POST","PUT", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
