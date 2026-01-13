@@ -5,9 +5,12 @@ const BASE_URL=process.env.REACT_APP_STATE==="localhost" ? process.env.REACT_APP
 
 export const authenticateWithGoogle = async (token) => {
   try {
-    const response = await axios.post(`${BASE_URL}/api/auth/google`, {
-      token
-    });
+    const response = await axios.post(
+      `${BASE_URL}/api/auth/google`,
+      { token },
+      { withCredentials: true }
+    );
+
     // console.log(response, token);
     return response;
   } catch (error) {

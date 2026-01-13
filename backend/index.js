@@ -225,14 +225,14 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 const corsOptions = {
-  origin: [ 'http://localhost:3000',  'https://whatsapp-chatapp-mahesh-nadendla.onrender.com'],
+  origin: [ 'https://whatsapp-chatapp-mahesh-nadendla.onrender.com','http://localhost:3000' ],
   credentials: true,  
 };
+app.use(cors(corsOptions));
 
 app.use(express.json({ limit: '10mb' })); // increase the limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use("/api/auth",authRoutes)

@@ -63,7 +63,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [ 'http://localhost:3000',  'https://whatsapp-chatapp-mahesh-nadendla.onrender.com'],
+    origin: [ 'https://whatsapp-chatapp-mahesh-nadendla.onrender.com' , 'http://localhost:3000'  ],
     methods: ["GET", "POST"],
     credentials: true, // ✅ allow cookies/auth headers
   },
