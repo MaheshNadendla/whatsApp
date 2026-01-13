@@ -224,16 +224,35 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 
-const corsOptions = {
-  origin: [ 'https://whatsapp-chatapp-mahesh-nadendla.onrender.com','http://localhost:3000' ],
-  credentials: true,  
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: [ 'https://whatsapp-chatapp-mahesh-nadendla.onrender.com','http://localhost:3000' ],
+//   credentials: true,  
+// };
+// app.use(cors(corsOptions));
+
+app.use(cors({
+  origin: "https://whatsapp-chatapp-mahesh-nadendla.onrender.com",
+  credentials: true,
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+// 🔥 VERY IMPORTANT
+app.options("*", cors());
+
+app.use(cookieParser());
+
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  res.setHeader("Cross-Origin-Embedder-Policy", "unsafe-none");
+  next();
+});
+
+
 
 app.use(express.json({ limit: '10mb' })); // increase the limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-app.use(cookieParser());
 
 app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)

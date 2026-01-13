@@ -23,7 +23,8 @@ export const refreshUserData = async (token) => {
   try {
     const response = await axios.post(`${BASE_URL}/api/auth/google`, {
       token
-    });
+    },
+      { withCredentials: true });
     return response;
   } catch (error) {
     throw new Error("Error refreshing user data: " + error.message);
