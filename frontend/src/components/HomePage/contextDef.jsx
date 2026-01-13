@@ -217,7 +217,7 @@ import { useDispatch } from "react-redux";
 
 // const BASE_URL = "https://chatapp-backend-pp2d.onrender.com";
 
-const BASE_URL=process.env.REACT_APP_LOCAL_API_BASE_URL;
+const BASE_URL=process.env.REACT_APP_STATE==="localhost" ? process.env.REACT_APP_LOCAL_API_BASE_URL : process.env.REACT_APP_GLOBAL_API_BASE_URL;;
 
 
 export const ContextDef = createContext();
