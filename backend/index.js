@@ -225,7 +225,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 const corsOptions = {
-  origin: [ 'http://localhost:3000',  'https://chatapp-frontend-5ql0.onrender.com'],
+  origin: [ 'http://localhost:3000',  'https://whatsapp-chatapp-mahesh-nadendla.onrender.com'],
   credentials: true,  
 };
 
