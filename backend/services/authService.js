@@ -7,7 +7,7 @@ dotenv.config();
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-const verifyGoogleTokenAndCreateUser = async (token) => {
+const verifyGoogleTokenAndCreateUser = async(token) => {
   try {
     // Verify Google token
     const ticket = await client.verifyIdToken({
@@ -56,7 +56,8 @@ const verifyGoogleTokenAndCreateUser = async (token) => {
     return { user, jwtToken };
   } catch (error) {
     console.error("Google Auth Error:", error.message);
-    throw new Error("Google token verification failed");
+    // throw new Error("Google token verification failed");
+    return null;
   }
 };
 

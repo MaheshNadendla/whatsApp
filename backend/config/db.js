@@ -5,7 +5,7 @@ console.log("base url",BASE_URL)
 
 export const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {});
+    const conn = await mongoose.connect(BASE_URL, {});
 
     console.log(`MongoDB connected: ${conn.connection.host}`);
   } catch (error) {
