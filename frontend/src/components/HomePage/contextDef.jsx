@@ -217,10 +217,7 @@ import { useDispatch } from "react-redux";
 
 // const BASE_URL = "https://chatapp-backend-pp2d.onrender.com";
 
-const BASE_URL = "http://localhost:5000";
-
-
-
+const BASE_URL=process.env.REACT_APP_LOCAL_API_BASE_URL;
 
 
 export const ContextDef = createContext();

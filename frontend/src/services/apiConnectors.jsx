@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const BASE_URL=process.env.REACT_APP_STATE=="localhost" ? process.env.REACT_APP_LOCAL_API_BASE_URL : process.env.REACT_APP_GLOBAL_API_BASE_URL;
+
 // Base URL setup
-const derivedBaseUrl = process.env.REACT_APP_API_BASE_URL || `${window.location.origin}/api`;
+const derivedBaseUrl = `${BASE_URL}/api` || `${window.location.origin}/api`;
 
 // Create axios instance
 export const axiosInstance = axios.create({

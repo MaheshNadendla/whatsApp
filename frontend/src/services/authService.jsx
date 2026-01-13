@@ -1,9 +1,11 @@
 import { axiosInstance } from "../lib/axios";
 import axios from "axios";
 
+const BASE_URL=process.env.REACT_APP_STATE==="localhost" ? process.env.REACT_APP_LOCAL_API_BASE_URL : process.env.REACT_APP_GLOBAL_API_BASE_URL;
+
 export const authenticateWithGoogle = async (token) => {
   try {
-    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/google`, {
+    const response = await axios.post(`${BASE_URL}/api/auth/google`, {
       token
     });
     // console.log(response, token);
@@ -16,7 +18,7 @@ export const authenticateWithGoogle = async (token) => {
 // Function to refresh user data from backend
 export const refreshUserData = async (token) => {
   try {
-    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/google`, {
+    const response = await axios.post(`${BASE_URL}/api/auth/google`, {
       token
     });
     return response;

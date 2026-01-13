@@ -1,12 +1,6 @@
 import axios from "axios";
 
-let state = ""; // deployment
-
-let BASE_URL = "http://localhost:5000";
-
-if (state === "deployment") {
-  BASE_URL = "https://chatapp-backend-pp2d.onrender.com";
-}
+const BASE_URL=process.env.REACT_APP_STATE=="localhost" ? process.env.REACT_APP_LOCAL_API_BASE_URL : process.env.REACT_APP_GLOBAL_API_BASE_URL;
 
 export const axiosInstance = axios.create({
   baseURL: `${BASE_URL}/api`,
